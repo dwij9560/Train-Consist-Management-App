@@ -1,45 +1,53 @@
 /**
  * =========================================================
- * MAIN CLASS – UseCase1TrainConsistMgmt
+ * MAIN CLASS – UseCase3TrainConsistMgmt
  * =========================================================
  *
- * Use Case 1: Initialize Train and Display Consist Summary
+ * Use Case 3: Track Unique Bogie IDs (Set – HashSet)
  *
  * Description:
- * This class represents the entry point of the Train Consist
- * Management Application.
+ * This class ensures that duplicate bogie IDs are not added
+ * to the train by using a HashSet.
  *
  * At this stage, the application:
- * - Creates an empty train consist
- * - Uses dynamic List to store bogies
- * - Displays initial bogie count
- * - Prints the current state of the train
+ * - Adds bogie IDs
+ * - Prevents duplicate entries automatically
+ * - Displays only unique bogie IDs
  *
- * @author Developer
- * @version 1.0
+ * This demonstrates the use of Set for enforcing uniqueness.
+ *
+ * @author dwij vishwakarma
+ * @version 3.0
  */
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class TrainConsistManagementApp  {
 
     public static void main(String[] args) {
 
-        // Display welcome banner
         System.out.println("======================================");
-        System.out.println("=== Train Consist Management App ===");
+        System.out.println("=== UC3 - Track Unique Bogie IDs ===");
         System.out.println("======================================\n");
 
-        // Create a dynamic list to store train bogies
-        List<String> trainConsist = new ArrayList<>();
+        // Create a HashSet to store unique bogie IDs
+        Set<String> bogieIds = new HashSet<>();
 
-        // Display initial consist information
-        System.out.println("Train initialized successfully...");
-        System.out.println("Initial Bogie Count : " + trainConsist.size());
-        System.out.println("Current Train Consist : " + trainConsist);
+        // Adding bogie IDs (including duplicates intentionally)
+        bogieIds.add("BG101");
+        bogieIds.add("BG102");
+        bogieIds.add("BG103");
+        bogieIds.add("BG101"); // duplicate
+        bogieIds.add("BG102"); // duplicate
 
-        // System ready message
-        System.out.println("\nSystem ready for operations...");
+        System.out.println("After Adding Bogie IDs (with duplicates):");
+        System.out.println("Bogie IDs : " + bogieIds);
+
+        // Final unique set
+        System.out.println("\nFinal Unique Bogie IDs:");
+        System.out.println(bogieIds);
+
+        System.out.println("\nUC3 operations completed successfully...");
     }
 }
